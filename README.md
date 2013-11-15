@@ -1,4 +1,4 @@
-activr_demo
+Activr demo
 ===========
 
-Demo application for activr gem
+Demo application for activr gem.
