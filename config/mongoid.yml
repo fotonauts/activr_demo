@@ -1,9 +1,9 @@
 development:
-  host: localhost
+  host: infrabox
   database: activr_demo_development
 
 test:
-  host: localhost
+  host: infrabox
   database: activr_demo_test
 
 # set these environment variables on your prod server
