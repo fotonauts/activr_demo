@@ -39,3 +39,5 @@ gem 'jquery-rails'
 
 gem 'mongoid', '~> 2.8'
 gem 'bson_ext'
+
+gem 'devise'
