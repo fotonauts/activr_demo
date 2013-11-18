@@ -5,3 +5,49 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+puts 'SEEDING USERS'
+
+users = [
+  {
+    :_id => 'jpale',
+    :first_name => 'Jean',
+    :last_name => 'PALE',
+    :email => 'jpale@example.com',
+    :password => 'iloveactivities',
+    :password_confirmation => 'iloveactivities',
+    :fake => true,
+  },
+  {
+    :_id => 'anne',
+    :first_name => 'Anne',
+    :last_name => 'CHTITEGOUTE',
+    :email => 'anne@example.com',
+    :password => 'iloveactivities',
+    :password_confirmation => 'iloveactivities',
+    :fake => true,
+  },
+  {
+    :_id => 'corinne',
+    :first_name => 'Corinne',
+    :last_name => 'CHTITEGOUTE',
+    :email => 'corinne@example.com',
+    :password => 'iloveactivities',
+    :password_confirmation => 'iloveactivities',
+    :fake => true,
+  },
+  {
+    :_id => 'justine',
+    :first_name => 'Justine',
+    :last_name => 'CHTITEGOUTE',
+    :email => 'justine@example.com',
+    :password => 'iloveactivities',
+    :password_confirmation => 'iloveactivities',
+    :fake => true,
+  },
+]
+
+users.each do |user_hash|
+  user = User.create!(user_hash)
+  puts "Fake user created: #{user.fullname}"
+end
