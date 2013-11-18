@@ -1,1 +1,11 @@
-<p>User: <%= @user.fullname %></p>
+<p>Fullname: <%= @user.fullname %></p>
+
+<h3>Albums:</h2>
+<% @user.albums.each do |album| %>
+  <p><%= link_to album.name, album %></p>
+<% end %>
+
+<h3>Pictures:</h2>
+<% @user.pictures.each do |picture| %>
+  <p><%= link_to picture.title, picture %></p>
+<% end %>

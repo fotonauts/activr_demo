@@ -48,9 +48,27 @@ class User
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, :case_sensitive => false
 
+  # following / followers
+  has_and_belongs_to_many :following, :class_name => 'User', :inverse_of => :followers, :autosave => true
+  has_and_belongs_to_many :followers, :class_name => 'User', :inverse_of => :following
+
+  # user's albums and pictures
+  has_many :albums, :foreign_key => :owner_id
+  has_many :pictures, :foreign_key => :owner_id
+
 
   def fullname
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def follow!(user)
+    if self.id != user.id && !self.following.include?(user)
+      self.following << user
+    end
+  end
+
+  def unfollow!(user)
+    self.following.delete(user)
   end
 
 end
