@@ -10,7 +10,6 @@ puts 'SEEDING USERS'
 
 users = [
   {
-    :_id => 'jpale',
     :first_name => 'Jean',
     :last_name => 'PALE',
     :email => 'jpale@example.com',
@@ -19,7 +18,6 @@ users = [
     :fake => true,
   },
   {
-    :_id => 'anne',
     :first_name => 'Anne',
     :last_name => 'CHTITEGOUTE',
     :email => 'anne@example.com',
@@ -28,7 +26,6 @@ users = [
     :fake => true,
   },
   {
-    :_id => 'corinne',
     :first_name => 'Corinne',
     :last_name => 'CHTITEGOUTE',
     :email => 'corinne@example.com',
@@ -37,7 +34,6 @@ users = [
     :fake => true,
   },
   {
-    :_id => 'justine',
     :first_name => 'Justine',
     :last_name => 'CHTITEGOUTE',
     :email => 'justine@example.com',
