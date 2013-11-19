@@ -38,6 +38,6 @@ gem 'jquery-rails'
 # gem 'ruby-debug'
 
 gem 'mongoid', '~> 3.1'
-# gem 'bson_ext'
-
 gem 'devise', '~> 3.2'
+gem 'carrierwave', '~> 0.9'
+gem 'carrierwave-mongoid', '~> 0.6', :require => 'carrierwave/mongoid'
