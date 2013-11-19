@@ -1,0 +1,4 @@
+<h2>Users</h2>
+<% @users.each do |user| %>
+  <p><%= link_to user.fullname, user %></p>
+<% end %>

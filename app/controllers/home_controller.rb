@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+    # TODO
   end
 end
