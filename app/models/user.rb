@@ -8,7 +8,9 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :first_name, :last_name, :fake, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :first_name, :last_name, :fake, :email,
+                  :following, :followers, :following_albums, :likes, :albums, :pictures,
+                  :password, :password_confirmation, :remember_me
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -49,17 +51,25 @@ class User
   validates_uniqueness_of :email, :case_sensitive => false
 
   # following / followers
-  has_and_belongs_to_many :following, :class_name => 'User', :inverse_of => :followers, :autosave => true
+  has_and_belongs_to_many :following, :class_name => 'User', :inverse_of => :followers #, :autosave => true
   has_and_belongs_to_many :followers, :class_name => 'User', :inverse_of => :following
 
+  has_and_belongs_to_many :following_albums, :class_name => 'Album', :inverse_of => :followers
+  has_and_belongs_to_many :likes, :class_name => "Picture", :inverse_of => :likers
+
   # user's albums and pictures
-  has_many :albums, :foreign_key => :owner_id
-  has_many :pictures, :foreign_key => :owner_id
+  has_many :albums, :class_name => 'Album', :inverse_of => :owner
+  has_many :pictures, :class_name => 'Picture', :inverse_of => :owner
 
 
   def fullname
     "#{self.first_name} #{self.last_name}"
   end
+
+
+  #
+  # Relationships
+  #
 
   def follow!(user)
     if self.id != user.id && !self.following.include?(user)
@@ -69,6 +79,26 @@ class User
 
   def unfollow!(user)
     self.following.delete(user)
+  end
+
+  def follow_album!(album)
+    if !self.following_albums.include?(album)
+      self.following_albums << album
+    end
+  end
+
+  def unfollow_album!(album)
+    self.following_albums.delete(album)
+  end
+
+  def like!(picture)
+    if !self.likes.include?(picture)
+      self.likes << picture
+    end
+  end
+
+  def unlike!(picture)
+    self.likes.delete(picture)
   end
 
 end

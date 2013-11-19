@@ -9,3 +9,23 @@
 <% @user.pictures.each do |picture| %>
   <p><%= link_to picture.title, picture %></p>
 <% end %>
+
+<h3>Followers:</h2>
+<% @user.followers.each do |user| %>
+  <p><%= link_to user.fullname, user %></p>
+<% end %>
+
+<h3>Following:</h2>
+<% @user.following.each do |user| %>
+  <p><%= link_to user.fullname, user %></p>
+<% end %>
+
+<h3>Following Albums:</h2>
+<% @user.following_albums.each do |album| %>
+  <p><%= link_to album.name, album %></p>
+<% end %>
+
+<h3>Pictures liked:</h2>
+<% @user.likes.each do |picture| %>
+  <p><%= link_to picture.title, picture %></p>
+<% end %>

@@ -1,7 +1,12 @@
 <p>Name: <%= @album.name %></p>
-<p>Owner: <%= @album.owner.fullname %></p>
+<p>Owner: <%= link_to @album.owner.fullname, @album.owner %></p>
 
 <h3>Contains Pictures:</h2>
 <% @album.pictures.each do |picture| %>
   <p><%= link_to picture.title, picture %></p>
+<% end %>
+
+<h3>Followers:</h2>
+<% @album.followers.each do |follower| %>
+  <p><%= link_to follower.fullname, follower %></p>
 <% end %>
