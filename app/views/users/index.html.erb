@@ -1,4 +1,4 @@
 <h2>Users</h2>
 <% @users.each do |user| %>
-  <p><img src="<%= user.avatar.thumb.url %>"><%= link_to user.fullname, user %></p>
+  <p><%= image_tag(user.avatar.thumb.url) %><%= link_to user.fullname, user %></p>
 <% end %>

@@ -3,7 +3,13 @@ Activr demo
 
 Demo application for activr gem.
 
-Reset with:
+Install imagemagick first. On mac:
+
+```
+$ brew install imagemagick
+```
+
+Reset database with:
 
 ```
 $ rake db:drop

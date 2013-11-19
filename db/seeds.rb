@@ -43,6 +43,9 @@ users_infos.each do |user_id, user_hash|
   puts "Fake user created: #{users[user_id].fullname}"
 end
 
+users['anne'].remote_avatar_url = 'http://s3.amazonaws.com/uifaces/faces/twitter/jackiesaik/128.jpg'
+users['anne'].save
+
 
 puts
 puts 'SEEDING PICTURES AND ALBUMS'
