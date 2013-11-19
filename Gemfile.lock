@@ -31,9 +31,6 @@ GEM
     arel (3.0.2)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    bson (1.9.2)
-    bson_ext (1.9.2)
-      bson (~> 1.9.2)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -42,7 +39,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    devise (3.1.1)
+    devise (3.2.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -61,13 +58,14 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25)
-    mongo (1.9.2)
-      bson (~> 1.9.2)
-    mongoid (2.8.1)
-      activemodel (~> 3.1)
-      mongo (~> 1.9)
-      tzinfo (~> 0.3.22)
+    mongoid (3.1.5)
+      activemodel (~> 3.2)
+      moped (~> 1.4)
+      origin (~> 1.0)
+      tzinfo (~> 0.3.29)
+    moped (1.5.1)
     multi_json (1.8.2)
+    origin (1.1.0)
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -123,12 +121,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bson_ext
   coffee-rails (~> 3.2.1)
-  devise (= 3.1.1)
+  devise (~> 3.2)
   jquery-rails
   json
-  mongoid (~> 2.8)
+  mongoid (~> 3.1)
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
