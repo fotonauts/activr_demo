@@ -16,3 +16,4 @@
 
 .rbenv-version
 *.DS_Store
+/public/uploads
