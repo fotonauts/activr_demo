@@ -10,4 +10,13 @@ module ApplicationHelper
     end
   end
 
+  def bootstrap_class_for_flash_kind(kind)
+    {
+      :success => "alert-success",
+      :error   => "alert-error",
+      :alert   => "alert-block",
+      :notice  => "alert-info",
+    }[kind] || kind.to_s
+  end
+
 end
