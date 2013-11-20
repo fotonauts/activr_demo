@@ -6,7 +6,7 @@ class Picture
                   :external_url, :external_author, :external_author_url,
                   :owner, :albums, :likers
 
-  field :_id, :type => String, :default => lambda { title.parameterize }
+  field :_id, :type => String, :default => lambda { title ? title.parameterize : nil }
 
   # carrierwave
   mount_uploader :image, PictureUploader

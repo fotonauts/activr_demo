@@ -8,7 +8,7 @@ class User
                   :following, :followers, :following_albums, :likes, :albums, :pictures,
                   :password, :password_confirmation, :remember_me
 
-  field :_id, :type => String, :default => lambda { first_name.parameterize }
+  field :_id, :type => String, :default => lambda { first_name ? first_name.parameterize : nil }
 
   # carrierwave
   mount_uploader :avatar, AvatarUploader

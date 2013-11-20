@@ -10,6 +10,10 @@
   <%= csrf_meta_tags %>
 
   <%= yield(:head) %>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 
 <body class="<%= controller_name %> <%= action_name %>">
@@ -17,7 +21,7 @@
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
   </header>
-  <div id="main">
+  <div class="container">
     <%= yield %>
   </div>
   <footer>
