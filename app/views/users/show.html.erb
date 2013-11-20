@@ -1,33 +1,33 @@
-<%= image_tag(@user.avatar.url) %>
+<%= image_tag(@user.avatar.url, :title => @user.fullname) %>
 
 <p>Fullname: <%= @user.fullname %></p>
 
 <h3>Albums:</h2>
 <% @user.albums.each do |album| %>
-  <p><%= link_to album.name, album %></p>
+  <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
 <% end %>
 
 <h3>Pictures:</h2>
 <% @user.pictures.each do |picture| %>
-  <p><%= link_to picture.title, picture %></p>
+  <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
 <% end %>
 
 <h3>Followers:</h2>
 <% @user.followers.each do |user| %>
-  <p><%= link_to user.fullname, user %></p>
+  <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
 <% end %>
 
 <h3>Following:</h2>
 <% @user.following.each do |user| %>
-  <p><%= link_to user.fullname, user %></p>
+  <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
 <% end %>
 
 <h3>Following Albums:</h2>
 <% @user.following_albums.each do |album| %>
-  <p><%= link_to album.name, album %></p>
+  <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
 <% end %>
 
 <h3>Pictures liked:</h2>
 <% @user.likes.each do |picture| %>
-  <p><%= link_to picture.title, picture %></p>
+  <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
 <% end %>

@@ -1,13 +1,19 @@
+<%= image_tag(@picture.image.medium.url, :title => @picture.title) %>
+
 <p>Title: <%= @picture.title %></p>
-<p>Owner: <%= link_to @picture.owner.fullname, @picture.owner %></p>
+<p>Owner: <%= link_to image_tag(@picture.owner.avatar.thumb.url, :title => @picture.owner.fullname), @picture.owner %></p>
 <p>Featured: <%= @picture.featured %></p>
+
+<% if @picture.external_author %>
+  <p>Original author: <%= link_to(@picture.external_author, @picture.external_author_url, :target => '_blank') %></p>
+<% end %>
 
 <h3>Appears in albums:</h2>
 <% @picture.albums.each do |album| %>
-  <p><%= link_to album.name, album %></p>
+  <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
 <% end %>
 
 <h3>Likers:</h2>
 <% @picture.likers.each do |user| %>
-  <p><%= link_to user.fullname, user %></p>
+  <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
 <% end %>

@@ -2,6 +2,14 @@ class User
 
   include Mongoid::Document
 
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :avatar, :avatar_cache,
+                  :first_name, :last_name, :fake, :email,
+                  :following, :followers, :following_albums, :likes, :albums, :pictures,
+                  :password, :password_confirmation, :remember_me
+
+  field :_id, :type => String, :default => lambda { first_name.parameterize }
+
   # carrierwave
   mount_uploader :avatar, AvatarUploader
 
@@ -9,12 +17,6 @@ class User
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :avatar, :avatar_cache,
-                  :first_name, :last_name, :fake, :email,
-                  :following, :followers, :following_albums, :likes, :albums, :pictures,
-                  :password, :password_confirmation, :remember_me
 
   ## Database authenticatable
   field :email,              :type => String, :default => ""
@@ -45,7 +47,7 @@ class User
   # field :unlock_token,    :type => String # Only if unlock strategy is :email or :both
   # field :locked_at,       :type => Time
 
-  # custom fields
+  # fields
   field :first_name, :type => String
   field :last_name, :type => String
   field :fake, :type => Boolean, :default => false
@@ -54,14 +56,13 @@ class User
   validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email, :case_sensitive => false
 
-  # following / followers
+  # relationships
   has_and_belongs_to_many :following, :class_name => 'User', :inverse_of => :followers #, :autosave => true
   has_and_belongs_to_many :followers, :class_name => 'User', :inverse_of => :following
 
   has_and_belongs_to_many :following_albums, :class_name => 'Album', :inverse_of => :followers
   has_and_belongs_to_many :likes, :class_name => "Picture", :inverse_of => :likers
 
-  # user's albums and pictures
   has_many :albums, :class_name => 'Album', :inverse_of => :owner
   has_many :pictures, :class_name => 'Picture', :inverse_of => :owner
 
