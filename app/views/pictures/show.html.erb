@@ -1,3 +1,5 @@
+<% provide(:title, @picture.title) %>
+
 <%= image_tag(@picture.image.medium.url, :title => @picture.title) %>
 
 <p>Title: <%= @picture.title %></p>

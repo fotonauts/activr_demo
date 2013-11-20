@@ -1,3 +1,5 @@
+<% provide(:title, @user.fullname) %>
+
 <%= image_tag(@user.avatar.url, :title => @user.fullname) %>
 
 <p>Fullname: <%= @user.fullname %></p>
