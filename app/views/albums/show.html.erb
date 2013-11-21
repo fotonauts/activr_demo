@@ -1,14 +1,48 @@
 <% provide(:title, @album.name) %>
 
-<p>Name: <%= @album.name %></p>
-<p>Owner: <%= link_to image_tag(@album.owner.avatar.thumb.url, :title => @album.owner.fullname), @album.owner %></p>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <%= image_tag(@album.cover.image.thumb.url, :title => @album.name) %>
+        <%= @album.name %>
+      </h1>
+      <p>
+        by <%= link_to image_tag(@album.owner.avatar.micro.url, :title => @album.owner.fullname), @album.owner %> <%= link_to @album.owner.fullname, @album.owner %>
+      </p>
+      <% if user_signed_in? && (current_user != @album.owner) %>
+        <% if current_user.follow_album?(@album) %>
+          <%= button_to("Unfollow", unfollow_album_path(@album), :method => :post, :class => 'button btn btn-danger') %>
+        <% else %>
+          <%= button_to("Follow", follow_album_path(@album), :method => :post, :class => 'button btn btn-primary') %>
+        <% end %>
+      <% end %>
+    </section>
 
-<h3>Contains Pictures:</h2>
-<% @album.pictures.each do |picture| %>
-  <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
-<% end %>
+    <% unless @album.pictures.blank? %>
+      <section>
+        <h3><strong><%= @album.pictures.count %></strong> pictures</h3>
+        <p>
+          <% @album.pictures.each do |picture| %>
+            <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
 
-<h3>Followers:</h2>
-<% @album.followers.each do |follower| %>
-  <%= image_tag(follower.avatar.thumb.url) %><%= link_to follower.fullname, follower %>
-<% end %>
+    <% unless @album.followers.blank? %>
+      <section>
+        <h3><strong><%= @album.followers.count %></strong> followers</h3>
+        <p>
+          <% @album.followers.each do |follower| %>
+            <%= image_tag(follower.avatar.thumb.url) %><%= link_to follower.fullname, follower %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+  </aside>
+
+  <div class="col-md-8">
+    <h3>HERE SOON: ALBUM'S ACTIVITY FEED<h3>
+  </div>
+</div>

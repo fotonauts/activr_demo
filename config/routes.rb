@@ -9,6 +9,11 @@ ActivrDemo::Application.routes.draw do
     end
   end
 
-  resources :albums
+  resources :albums do
+    member do
+      post :follow, :unfollow
+    end
+  end
+
   resources :pictures
 end

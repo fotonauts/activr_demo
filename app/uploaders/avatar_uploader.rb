@@ -10,6 +10,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [ 50, 50 ]
   end
 
+  version :micro do
+    process :resize_to_fill => [ 20, 20 ]
+  end
+
+
   # Override the directory where uploaded files will be stored.
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
