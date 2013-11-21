@@ -1,35 +1,78 @@
 <% provide(:title, @user.fullname) %>
 
-<%= image_tag(@user.avatar.url, :title => @user.fullname) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <%= image_tag(@user.avatar.url, :title => @user.fullname) %>
+        <%= @user.fullname %>
+      </h1>
+    </section>
+    <% unless @user.following.blank? %>
+      <section>
+        <h3><strong><%= @user.following.count %></strong> following</h3>
+        <p>
+          <% @user.following.each do |user| %>
+            <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+    <% unless @user.followers.blank? %>
+      <section>
+        <h3><strong><%= @user.followers.count %></strong> followers</h3>
+        <p>
+          <% @user.followers.each do |user| %>
+            <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+    <% unless @user.albums.blank? %>
+      <section>
+        <h3><strong><%= @user.albums.count %></strong> albums</h3>
+        <p>
+          <% @user.albums.each do |album| %>
+            <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+    <% unless @user.pictures.blank? %>
+      <section>
+        <h3><strong><%= @user.pictures.count %></strong> pictures</h3>
+        <p>
+          <% @user.pictures.each do |picture| %>
+            <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+    <% unless @user.following_albums.blank? %>
+      <section>
+        <h3><strong><%= @user.following_albums.count %></strong> following albums</h3>
+        <p>
+          <% @user.following_albums.each do |album| %>
+            <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+    <% unless @user.likes.blank? %>
+      <section>
+        <h3><strong><%= @user.likes.count %></strong> likes</h3>
+        <p>
+          <% @user.likes.each do |picture| %>
+            <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+  </aside>
 
-<p>Fullname: <%= @user.fullname %></p>
+  <div class="col-md-8">
+    HERE SOON: USER'S NEWS FEED
+  </div>
+</div>
 
-<h3>Albums:</h2>
-<% @user.albums.each do |album| %>
-  <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
-<% end %>
 
-<h3>Pictures:</h2>
-<% @user.pictures.each do |picture| %>
-  <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
-<% end %>
-
-<h3>Followers:</h2>
-<% @user.followers.each do |user| %>
-  <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
-<% end %>
-
-<h3>Following:</h2>
-<% @user.following.each do |user| %>
-  <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
-<% end %>
-
-<h3>Following Albums:</h2>
-<% @user.following_albums.each do |album| %>
-  <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
-<% end %>
-
-<h3>Pictures liked:</h2>
-<% @user.likes.each do |picture| %>
-  <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
-<% end %>
