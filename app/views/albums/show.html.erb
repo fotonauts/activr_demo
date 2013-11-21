@@ -10,6 +10,7 @@
       <p>
         by <%= link_to image_tag(@album.owner.avatar.micro.url, :title => @album.owner.fullname), @album.owner %> <%= link_to @album.owner.fullname, @album.owner %>
       </p>
+
       <% if user_signed_in? && (current_user != @album.owner) %>
         <% if current_user.follow_album?(@album) %>
           <%= button_to("Unfollow", unfollow_album_path(@album), :method => :post, :class => 'button btn btn-danger') %>
