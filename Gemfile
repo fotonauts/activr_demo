@@ -46,6 +46,7 @@ end
 # Custom gems
 gem 'mongoid', '~> 4', :github => 'mongoid/mongoid'
 
+gem 'simple_form'
 gem 'devise'
 
 gem 'carrierwave'
