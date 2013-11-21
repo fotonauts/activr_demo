@@ -15,5 +15,9 @@ ActivrDemo::Application.routes.draw do
     end
   end
 
-  resources :pictures
+  resources :pictures do
+    member do
+      post :like, :unlike
+    end
+  end
 end

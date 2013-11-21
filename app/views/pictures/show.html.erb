@@ -1,21 +1,49 @@
 <% provide(:title, @picture.title) %>
 
-<%= image_tag(@picture.image.medium.url, :title => @picture.title) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1><%= @picture.title %></h1>
+      <p>
+        by <%= link_to image_tag(@picture.owner.avatar.micro.url, :title => @picture.owner.fullname), @picture.owner %> <%= link_to @picture.owner.fullname, @picture.owner %>
+      </p>
+    </section>
 
-<p>Title: <%= @picture.title %></p>
-<p>Owner: <%= link_to image_tag(@picture.owner.avatar.thumb.url, :title => @picture.owner.fullname), @picture.owner %></p>
-<p>Featured: <%= @picture.featured %></p>
+    <% unless @picture.albums.blank? %>
+      <section>
+        <h3>In <strong><%= @picture.albums.count %></strong> albums</h3>
+        <p>
+          <% @picture.albums.each do |album| %>
+            <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
 
-<% if @picture.external_author %>
-  <p>Original author: <%= link_to(@picture.external_author, @picture.external_author_url, :target => '_blank') %></p>
-<% end %>
+    <% unless @picture.likers.blank? %>
+      <section>
+        <h3><strong><%= @picture.likers.count %></strong> likes</h3>
+        <p>
+          <% @picture.likers.each do |user| %>
+            <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+  </aside>
 
-<h3>Appears in albums:</h2>
-<% @picture.albums.each do |album| %>
-  <%= link_to image_tag(album.cover.image.thumb.url, :title => album.name), album %>
-<% end %>
+  <div class="col-md-8">
+    <%= image_tag(@picture.image.url, :title => @picture.title) %>
+    <% if @picture.external_author %>
+      <p>from <%= link_to(@picture.external_author, @picture.external_author_url, :target => '_blank') %> TODO: ICON FOR EXTERNAL LINK</p>
+    <% end %>
 
-<h3>Likers:</h2>
-<% @picture.likers.each do |user| %>
-  <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
-<% end %>
+    <% if user_signed_in? && (current_user != @picture) %>
+      <% if current_user.like?(@picture) %>
+        <%= button_to("Unlike", unlike_picture_path(@picture), :method => :post, :class => 'button btn btn-danger') %>
+      <% else %>
+        <%= button_to("Like", like_picture_path(@picture), :method => :post, :class => 'button btn btn-primary') %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
