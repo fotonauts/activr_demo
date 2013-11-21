@@ -80,6 +80,10 @@ class User
     self.following.delete(user)
   end
 
+  def follow?(user)
+    self.following.include?(user)
+  end
+
   def follow_album!(album)
     if !self.following_albums.include?(album)
       self.following_albums << album
@@ -90,6 +94,10 @@ class User
     self.following_albums.delete(album)
   end
 
+  def follow_album?(user)
+    self.following_albums.include?(user)
+  end
+
   def like!(picture)
     if !self.likes.include?(picture)
       self.likes << picture
@@ -98,6 +106,10 @@ class User
 
   def unlike!(picture)
     self.likes.delete(picture)
+  end
+
+  def like?(picture)
+    self.likes.include?(picture)
   end
 
 end

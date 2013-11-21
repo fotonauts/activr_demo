@@ -7,7 +7,16 @@
         <%= image_tag(@user.avatar.url, :title => @user.fullname) %>
         <%= @user.fullname %>
       </h1>
+
+      <% if user_signed_in? && (current_user != @user) %>
+        <% if current_user.follow?(@user) %>
+          <%= button_to("Unfollow", unfollow_user_path(@user), :method => :post, :class => 'button btn btn-danger') %>
+        <% else %>
+          <%= button_to("Follow", follow_user_path(@user), :method => :post, :class => 'button btn btn-primary') %>
+        <% end %>
+      <% end %>
     </section>
+
     <% unless @user.following.blank? %>
       <section>
         <h3><strong><%= @user.following.count %></strong> following</h3>
@@ -18,6 +27,7 @@
         </p>
       </section>
     <% end %>
+
     <% unless @user.followers.blank? %>
       <section>
         <h3><strong><%= @user.followers.count %></strong> followers</h3>
@@ -28,6 +38,7 @@
         </p>
       </section>
     <% end %>
+
     <% unless @user.albums.blank? %>
       <section>
         <h3><strong><%= @user.albums.count %></strong> albums</h3>
@@ -38,6 +49,7 @@
         </p>
       </section>
     <% end %>
+
     <% unless @user.pictures.blank? %>
       <section>
         <h3><strong><%= @user.pictures.count %></strong> pictures</h3>
@@ -48,6 +60,7 @@
         </p>
       </section>
     <% end %>
+
     <% unless @user.following_albums.blank? %>
       <section>
         <h3><strong><%= @user.following_albums.count %></strong> following albums</h3>
@@ -58,6 +71,7 @@
         </p>
       </section>
     <% end %>
+
     <% unless @user.likes.blank? %>
       <section>
         <h3><strong><%= @user.likes.count %></strong> likes</h3>
@@ -71,8 +85,10 @@
   </aside>
 
   <div class="col-md-8">
-    HERE SOON: USER'S NEWS FEED
+    <h3>HERE SOON: USER'S ACTIVITY FEED<h3>
+
+    <% if user_signed_in? && (current_user == @user) %>
+      <h3>HERE SOON: CURRENT USER'S NEWS FEED</h3>
+    <% end %>
   </div>
 </div>
-
-
