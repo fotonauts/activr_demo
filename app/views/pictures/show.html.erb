@@ -5,7 +5,7 @@
     <section>
       <h1><%= @picture.title %></h1>
       <p>
-        by <%= link_to image_tag(@picture.owner.avatar.micro.url, :title => @picture.owner.fullname), @picture.owner %> <%= link_to @picture.owner.fullname, @picture.owner %>
+        uploaded by <%= link_to image_tag(@picture.owner.avatar.micro.url, :title => @picture.owner.fullname), @picture.owner %> <%= link_to @picture.owner.fullname, @picture.owner %>
       </p>
     </section>
 
@@ -35,7 +35,7 @@
   <div class="col-md-8">
     <%= image_tag(@picture.image.url, :title => @picture.title) %>
     <% if @picture.external_author %>
-      <p>from <%= link_to(@picture.external_author, @picture.external_author_url, :target => '_blank') %> TODO: ICON FOR EXTERNAL LINK</p>
+      <p class="external_author">by <%= link_to(@picture.external_author, @picture.external_author_url, :target => '_blank') %> <span class="glyphicon glyphicon-new-window"></span></p>
     <% end %>
 
     <% if user_signed_in? && (current_user != @picture) %>

@@ -11,8 +11,6 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     if user_signed_in? && (current_user != @picture) && !current_user.like?(@picture)
       current_user.like!(@picture)
-
-      flash[:success] = "You liked photo '#{@picture.title}'"
     end
 
     redirect_to @picture
@@ -22,8 +20,6 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     if user_signed_in? && current_user.like?(@picture)
       current_user.unlike!(@picture)
-
-      flash[:success] = "You don't like photo '#{@picture.title}' anymore"
     end
 
     redirect_to @picture
