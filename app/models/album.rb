@@ -2,8 +2,6 @@ class Album
 
   include Mongoid::Document
 
-  attr_accessible :name, :fake, :owner, :pictures, :followers
-
   # fields
   field :name, :type => String
   field :fake, :type => Boolean, :default => false

@@ -2,10 +2,6 @@ class Picture
 
   include Mongoid::Document
 
-  attr_accessible :title, :fake, :featured,
-                  :external_url, :external_author, :external_author_url,
-                  :owner, :albums, :likers
-
   field :_id, :type => String, :default => lambda { title ? title.parameterize : nil }
 
   # carrierwave

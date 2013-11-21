@@ -2,12 +2,6 @@ class User
 
   include Mongoid::Document
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :avatar, :avatar_cache,
-                  :first_name, :last_name, :fake, :email,
-                  :following, :followers, :following_albums, :likes, :albums, :pictures,
-                  :password, :password_confirmation, :remember_me
-
   field :_id, :type => String, :default => lambda { first_name ? first_name.parameterize : nil }
 
   # carrierwave
