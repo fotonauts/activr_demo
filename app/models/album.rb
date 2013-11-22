@@ -16,7 +16,7 @@ class Album
 
 
   def cover
-    self.pictures.first
+    self.pictures.first || Picture.default_picture
   end
 
 end

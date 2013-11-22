@@ -24,4 +24,14 @@ class Picture
   has_and_belongs_to_many :albums, :class_name => "Album", :inverse_of => :pictures
   has_and_belongs_to_many :likers, :class_name => "User", :inverse_of => :likes
 
+
+  class << self
+
+    # default picture
+    def default_picture
+      @default_picture ||= Picture.find('default')
+    end
+
+  end
+
 end

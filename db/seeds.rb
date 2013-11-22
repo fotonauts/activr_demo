@@ -48,8 +48,8 @@ users = { }
 users_infos.each do |user_id, user_infos|
   user = User.create!(user_infos[:fields].merge({
     :fake => true,
-    :password => 'iloveactivities',
-    :password_confirmation => 'iloveactivities',
+    :password => 'popopopo',
+    :password_confirmation => 'popopopo',
   }))
 
   if user_infos[:remote_avatar_url]
@@ -209,3 +209,13 @@ users['corinne'].like!(pictures['LOOOOL'])
 users['corinne'].like!(pictures['My little coccinnelle'])
 
 users['justine'].follow!(users['jpale'])
+
+
+puts
+puts '== SEEDING DEFAULT PICTURE'
+
+Picture.create!({
+  :title => 'default',
+  :owner => users['jpale'],
+  :fake  => true,
+})
