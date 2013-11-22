@@ -6,7 +6,7 @@ class FollowBuddyActivity < Activr::Activity
   entity :buddy, :class => User
 
   def humanize
-    Activr.sentence("{{actor}} follow buddy {{buddy}}")
+    Activr.sentence("{{actor}} is now following {{buddy}}")
   end
 
 end
