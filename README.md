@@ -18,7 +18,6 @@ Test
 Reset with:
 
 ```
-$ rake db:drop
-$ rake db:seed
 $ rm -rf public/uploads/
+$ rake db:reset
 ```
