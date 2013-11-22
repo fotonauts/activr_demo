@@ -1,0 +1,16 @@
+<% provide(:title, "New picture") %>
+
+<div class="col-md-6 col-md-offset-3">
+  <%= simple_form_for(@picture) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :title, :placeholder => 'My great picture', :required => true, :autofocus => true %>
+      <%= f.input :image, :as => :file, :required => true %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Upload Picture", :class => 'btn-primary' %>
+    </div>
+  <% end %>
+</div>

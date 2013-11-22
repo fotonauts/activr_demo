@@ -17,7 +17,7 @@ class Picture
   field :external_author_url, :type => String
 
   # validation
-  validates_presence_of :title
+  validates_presence_of :title, :image
 
   # relationships
   belongs_to :owner, :class_name => "User", :inverse_of => :pictures
