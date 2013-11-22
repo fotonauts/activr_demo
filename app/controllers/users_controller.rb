@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!, :except => [ :index, :show ]
+
   def index
     @users = User.all
   end
@@ -9,7 +11,7 @@ class UsersController < ApplicationController
 
   def follow
     @user = User.find(params[:id])
-    if user_signed_in? && (current_user != @user) && !current_user.follow?(@user)
+    if (current_user != @user) && !current_user.follow?(@user)
       current_user.follow!(@user)
     end
 
@@ -18,7 +20,7 @@ class UsersController < ApplicationController
 
   def unfollow
     @user = User.find(params[:id])
-    if user_signed_in? && current_user.follow?(@user)
+    if current_user.follow?(@user)
       current_user.unfollow!(@user)
     end
 

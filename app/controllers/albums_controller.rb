@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_filter :authenticate_user!, :only => [ :new, :create, :follow, :unfollow, :add_photo ]
+  before_filter :authenticate_user!, :except => [ :index, :show ]
 
   def index
     @albums = Album.all
