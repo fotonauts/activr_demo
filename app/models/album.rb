@@ -19,4 +19,8 @@ class Album
     self.pictures.first || Picture.default_picture
   end
 
+  def add_picture(picture)
+    self.pictures << picture unless self.pictures.include?(picture)
+  end
+
 end

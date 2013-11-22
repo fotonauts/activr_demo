@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_filter :authenticate_user!, :only => [ :new, :create, :follow, :unfollow ]
+  before_filter :authenticate_user!, :only => [ :new, :create, :follow, :unfollow, :add_photo ]
 
   def index
     @albums = Album.all
@@ -44,10 +44,41 @@ class AlbumsController < ApplicationController
     redirect_to @album
   end
 
+  def new_photo
+    @album = Album.find(params[:id])
+    if (current_user != @album.owner)
+      flash[:error] = "You are not the owner of album: '#{@album.name}'"
+      redirect_to @album
+    else
+      @picture = Picture.new
+    end
+  end
+
+  def create_photo
+    @album = Album.find(params[:id])
+    if (current_user != @album.owner)
+      flash[:error] = "You are not the owner of album: '#{@album.name}'"
+      redirect_to @album
+    else
+      # create picture
+      picture = Picture.create!(picture_params)
+
+      # add picture to album
+      @album.add_picture(picture)
+
+      flash[:success] = "Photo '#{picture.title}' added to album: '#{@album.name}'"
+      redirect_to @album
+    end
+  end
+
 
   private
 
   def album_params
     params.require(:album).permit(:name)
+  end
+
+  def picture_params
+    params.require(:picture).permit(:title, :image)
   end
 end

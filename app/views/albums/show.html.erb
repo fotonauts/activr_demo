@@ -18,6 +18,12 @@
           <%= button_to("Follow", follow_album_path(@album), :method => :post, :class => 'button btn btn-primary') %>
         <% end %>
       <% end %>
+
+      <% if user_signed_in? && (current_user == @album.owner) %>
+        <p>
+          <span class="glyphicon glyphicon-plus"></span> <%= link_to "add picture", new_photo_album_path %>
+        </p>
+      <% end %>
     </section>
 
     <% unless @album.pictures.blank? %>
