@@ -17,28 +17,6 @@
       <% end %>
     </section>
 
-    <% unless @user.following.blank? %>
-      <section>
-        <h3><strong><%= @user.following.count %></strong> following</h3>
-        <p>
-          <% @user.following.each do |user| %>
-            <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
-          <% end %>
-        </p>
-      </section>
-    <% end %>
-
-    <% unless @user.followers.blank? %>
-      <section>
-        <h3><strong><%= @user.followers.count %></strong> followers</h3>
-        <p>
-          <% @user.followers.each do |user| %>
-            <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
-          <% end %>
-        </p>
-      </section>
-    <% end %>
-
     <% unless @user.albums.blank? %>
       <section>
         <h3><strong><%= @user.albums.count %></strong> albums</h3>
@@ -56,6 +34,28 @@
         <p>
           <% @user.pictures.each do |picture| %>
             <%= link_to image_tag(picture.image.thumb.url, :title => picture.title), picture %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+
+    <% unless @user.following.blank? %>
+      <section>
+        <h3><strong><%= @user.following.count %></strong> following</h3>
+        <p>
+          <% @user.following.each do |user| %>
+            <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
+          <% end %>
+        </p>
+      </section>
+    <% end %>
+
+    <% unless @user.followers.blank? %>
+      <section>
+        <h3><strong><%= @user.followers.count %></strong> followers</h3>
+        <p>
+          <% @user.followers.each do |user| %>
+            <%= link_to image_tag(user.avatar.thumb.url, :title => user.fullname), user %>
           <% end %>
         </p>
       </section>
