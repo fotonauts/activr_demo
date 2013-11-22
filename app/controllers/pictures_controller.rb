@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_filter :authenticate_user!, :only => [ :new, :create, :like, :unlike ]
+  before_filter :authenticate_user!, :except => [ :index, :show ]
 
   def index
     @pictures = Picture.all
@@ -7,6 +7,10 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
+
+    if user_signed_in?
+      @target_albums = current_user.target_albums(@picture)
+    end
   end
 
   def new
@@ -42,6 +46,19 @@ class PicturesController < ApplicationController
     end
 
     redirect_to @picture
+  end
+
+  def add_to_album
+    @picture = Picture.find(params[:id])
+    @album = Album.find(params[:album_id])
+
+    if @album.owner != current_user
+      flash[:error] = "You don't own album: #{@album.name}"
+      redirect_to @picture
+    else
+      @album.add_picture(@picture)
+      redirect_to @picture
+    end
   end
 
 

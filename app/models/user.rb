@@ -65,6 +65,11 @@ class User
     "#{self.first_name} #{self.last_name}"
   end
 
+  # albums in which we can add given picture
+  def target_albums(picture)
+    self.albums.reject{ |album| album.pictures.include?(picture) }
+  end
+
 
   #
   # Relationships

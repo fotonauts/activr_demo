@@ -7,6 +7,13 @@
       <p>
         uploaded by <%= link_to image_tag(@picture.owner.avatar.micro.url, :title => @picture.owner.fullname), @picture.owner %> <%= link_to @picture.owner.fullname, @picture.owner %>
       </p>
+
+      <% if user_signed_in? && !@target_albums.blank? %>
+        <%= form_tag(add_to_album_picture_path(@picture), :method => "post", :class => 'form-inline', :role => 'form') do %>
+          <%= submit_tag("Add to album :", :class => 'btn btn-default') %>
+          <%= select_tag(:album_id, options_from_collection_for_select(@target_albums, :id, :name), :class => "form-control") %>
+        <% end %>
+      <% end %>
     </section>
 
     <% unless @picture.albums.blank? %>
@@ -38,7 +45,7 @@
       <p class="external_author">by <%= link_to(@picture.external_author, @picture.external_author_url, :target => '_blank') %> <span class="glyphicon glyphicon-new-window"></span></p>
     <% end %>
 
-    <% if user_signed_in? && (current_user != @picture) %>
+    <% if user_signed_in? && (current_user != @picture.owner) %>
       <% if current_user.like?(@picture) %>
         <%= button_to("Unlike", unlike_picture_path(@picture), :method => :post, :class => 'button btn btn-danger') %>
       <% else %>

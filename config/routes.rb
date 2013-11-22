@@ -20,6 +20,7 @@ ActivrDemo::Application.routes.draw do
   resources :pictures do
     member do
       post :like, :unlike
+      post :add_to_album
     end
   end
 end
