@@ -10,12 +10,10 @@ GIT
 
 GIT
   remote: git@github.com:fotonauts/fwissr.git
-  revision: 20806625b672b561e0678dbd4a006ca8eaf753b0
+  revision: 9cd7a5a8dfcb336f35ed1a4e169ed52af57a1fa2
   branch: master
   specs:
-    fwissr (0.0.8)
-      bson_ext
-      mongo
+    fwissr (0.0.9)
       yajl-ruby
 
 PATH
@@ -24,9 +22,7 @@ PATH
     activr (0.0.1)
       activemodel
       activesupport
-      bson_ext
       fwissr
-      mongo
       mustache
 
 GEM
@@ -60,7 +56,6 @@ GEM
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
     bson (2.0.0.rc3)
-    bson_ext (1.5.1)
     builder (3.1.4)
     carrierwave (0.9.0)
       activemodel (>= 3.2.0)
@@ -100,8 +95,6 @@ GEM
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
     minitest (4.7.5)
-    mongo (1.3.1)
-      bson (>= 1.3.1)
     moped (2.0.0.beta3)
       bson (~> 2.0.0.rc3)
       optionable (~> 0.1.1)
