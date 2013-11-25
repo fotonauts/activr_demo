@@ -13,6 +13,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if (current_user != @user) && !current_user.follow?(@user)
       current_user.follow!(@user)
+
+      # dispatch activity
+      Activr.dispatch!(FollowBuddyActivity.new(:actor => current_user, :buddy => @user))
     end
 
     redirect_to @user
