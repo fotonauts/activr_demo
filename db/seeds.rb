@@ -166,7 +166,7 @@ albums_infos.each do |user_id, albums_infos|
     })
 
     pictures_infos.each do |picture_title, picture_hash|
-      picture = Picture.create!(picture_hash.merge({
+      picture = Picture.create(picture_hash.merge({
         :title => picture_title,
         :owner => users[user_id],
         :fake  => true,
@@ -214,7 +214,7 @@ users['justine'].follow!(users['jpale'])
 puts
 puts '== SEEDING DEFAULT PICTURE'
 
-Picture.create!({
+Picture.create({
   :title => 'default',
   :owner => users['jpale'],
   :fake  => true,
