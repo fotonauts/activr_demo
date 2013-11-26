@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
-    # TODO
+    # fetch last activities
+    @activities = Activr.activities(20)
   end
 end

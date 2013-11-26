@@ -1,0 +1,14 @@
+<% if @activities.blank? %>
+  <p>
+    There is nothing to display right now.
+  </p>
+  <p>
+    Please login then perform some actions to generate some activities.
+  </p>
+<% else %>
+  <ul>
+  <% @activities.each do |activity| %>
+    <li><%= activity.humanize %></li>
+  <% end %>
+  </ul>
+<% end %>

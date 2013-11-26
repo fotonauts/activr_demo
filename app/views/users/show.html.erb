@@ -85,7 +85,9 @@
   </aside>
 
   <div class="col-md-8">
-    <h3>HERE SOON: USER'S ACTIVITY FEED<h3>
+    <h3>Activities</h3>
+
+    <%= render "shared/activities", :object => @activities %>
 
     <% if user_signed_in? && (current_user == @user) %>
       <h3>HERE SOON: CURRENT USER'S NEWS FEED</h3>

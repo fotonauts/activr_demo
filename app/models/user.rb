@@ -70,6 +70,11 @@ class User
     self.albums.reject{ |album| album.pictures.include?(picture) }
   end
 
+  # fetch last activities
+  def activities(limit, skip = 0)
+    Activr.activities(limit, :skip => skip, :actor => self._id)
+  end
+
 
   #
   # Relationships

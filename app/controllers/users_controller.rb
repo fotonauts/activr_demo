@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    # fetch last activities
+    @activities = @user.activities(20)
   end
 
   def follow
