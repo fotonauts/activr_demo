@@ -42,7 +42,7 @@
         <h3><strong><%= @album.followers.count %></strong> followers</h3>
         <p>
           <% @album.followers.each do |follower| %>
-            <%= image_tag(follower.avatar.thumb.url) %><%= link_to follower.fullname, follower %>
+            <%= image_tag(follower.avatar.thumb.url) %>
           <% end %>
         </p>
       </section>
@@ -52,6 +52,6 @@
   <div class="col-md-8">
     <h3>Activity Feed</h3>
 
-    <%= render "shared/activities", :object => @activities %>
+    <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
   </div>
 </div>

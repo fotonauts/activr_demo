@@ -87,7 +87,7 @@
   <div class="col-md-8">
     <h3>Activity Feed</h3>
 
-    <%= render "shared/activities", :object => @activities %>
+    <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
 
     <% if user_signed_in? && (current_user == @user) %>
       <h3>HERE SOON: CURRENT USER'S NEWS FEED</h3>
