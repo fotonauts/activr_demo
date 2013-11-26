@@ -23,4 +23,9 @@ class Album
     self.pictures << picture unless self.pictures.include?(picture)
   end
 
+  # fetch last activities
+  def activities(limit, skip = 0)
+    Activr.activities(limit, :skip => skip, :album => self._id)
+  end
+
 end

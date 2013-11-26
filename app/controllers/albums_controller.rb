@@ -7,6 +7,9 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+
+    # fetch last activities
+    @activities = @album.activities(20)
   end
 
   def new
@@ -30,6 +33,9 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     if (current_user != @album.owner) && !current_user.follow_album?(@album)
       current_user.follow_album!(@album)
+
+      # dispatch activity
+      Activr.dispatch!(FollowAlbumActivity.new(:actor => current_user, :album => @album))
     end
 
     redirect_to @album
