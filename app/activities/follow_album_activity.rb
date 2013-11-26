@@ -6,7 +6,7 @@ class FollowAlbumActivity < Activr::Activity
   entity :album, :class => Album
 
   def humanize
-    Activr.sentence("{{actor.fullname}} follow album {{album.name}", self.humanization_bindings)
+    Activr.sentence("{{actor.fullname}} is now following the album {{album.name}}", self.humanization_bindings)
   end
 
 end
