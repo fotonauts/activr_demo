@@ -33,9 +33,6 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     if (current_user != @album.owner) && !current_user.follow_album?(@album)
       current_user.follow_album!(@album)
-
-      # dispatch activity
-      Activr.dispatch!(FollowAlbumActivity.new(:actor => current_user, :album => @album))
     end
 
     redirect_to @album
@@ -70,7 +67,7 @@ class AlbumsController < ApplicationController
       picture = Picture.create!(picture_params)
 
       # add picture to album
-      @album.add_picture(picture)
+      @album.add_picture(picture, current_user)
 
       flash[:success] = "Photo '#{picture.title}' added to album: '#{@album.name}'"
       redirect_to @album

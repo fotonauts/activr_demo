@@ -19,8 +19,13 @@ class Album
     self.pictures.first || Picture.default_picture
   end
 
-  def add_picture(picture)
-    self.pictures << picture unless self.pictures.include?(picture)
+  def add_picture(picture, user)
+    unless self.pictures.include?(picture)
+      self.pictures << picture
+
+      # dispatch activity
+      Activr.dispatch!(AddPictureActivity.new(:actor => user, :picture => picture, :album => self))
+    end
   end
 
   # fetch last activities

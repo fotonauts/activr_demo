@@ -83,6 +83,9 @@ class User
   def follow!(user)
     if self.id != user.id && !self.following.include?(user)
       self.following << user
+
+      # dispatch activity
+      Activr.dispatch!(FollowBuddyActivity.new(:actor => self, :buddy => user))
     end
   end
 
@@ -97,6 +100,9 @@ class User
   def follow_album!(album)
     if !self.following_albums.include?(album)
       self.following_albums << album
+
+      # dispatch activity
+      Activr.dispatch!(FollowAlbumActivity.new(:actor => self, :album => album))
     end
   end
 
@@ -111,6 +117,9 @@ class User
   def like!(picture)
     if !self.likes.include?(picture)
       self.likes << picture
+
+      # dispatch activity
+      Activr.dispatch!(LikePictureActivity.new(:actor => self, :picture => picture))
     end
   end
 

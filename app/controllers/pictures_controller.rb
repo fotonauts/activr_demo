@@ -56,7 +56,7 @@ class PicturesController < ApplicationController
       flash[:error] = "You don't own album: #{@album.name}"
       redirect_to @picture
     else
-      @album.add_picture(@picture)
+      @album.add_picture(@picture, current_user)
       redirect_to @picture
     end
   end
