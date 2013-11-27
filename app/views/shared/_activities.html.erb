@@ -10,9 +10,12 @@
     <% end %>
   </p>
 <% else %>
-  <div class='activities'>
+  <div id='activities'>
     <% activities.each do |activity| %>
       <%= render :partial => "shared/activity", :locals => { :activity => activity } %>
     <% end %>
   </div>
+  <% if activities.is_a?(Kaminari::PaginatableArray) %>
+    <%= paginate(activities) %>
+  <% end %>
 <% end %>
