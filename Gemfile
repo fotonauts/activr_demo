@@ -54,6 +54,7 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick'
 
 gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0', :github => 'mcasimir/kaminari-bootstrap'
 
 # Fix that once gems are public
 gem "fwissr", :git => "git@github.com:fotonauts/fwissr.git", :branch => "master"

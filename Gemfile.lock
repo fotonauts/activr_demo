@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/mcasimir/kaminari-bootstrap.git
+  revision: 0dc098f544734afb73a254d56061ffb375a81431
+  specs:
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
+
+GIT
   remote: git://github.com/mongoid/mongoid.git
   revision: 8187a8073dfc6b804c66b3dc9f95b610b2232ce8
   specs:
@@ -177,6 +185,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
+  kaminari-bootstrap (~> 3.0)!
   mini_magick
   mongoid (~> 4)!
   rails (= 4.0.1)
