@@ -1,5 +1,7 @@
 class Album
 
+  include Activr::Entity::ModelMixin
+
   include Mongoid::Document
 
   # fields
@@ -26,16 +28,6 @@ class Album
       # dispatch activity
       Activr.dispatch!(AddPictureActivity.new(:actor => user, :picture => picture, :album => self))
     end
-  end
-
-  # fetch last activities
-  def activities(limit, skip = 0)
-    Activr.activities(limit, :skip => skip, :album => self._id)
-  end
-
-  # get total number of activities
-  def activities_count
-    Activr.count_activities(:album => self._id)
   end
 
 end

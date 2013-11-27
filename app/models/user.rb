@@ -1,5 +1,9 @@
 class User
 
+  include Activr::Entity::ModelMixin
+
+  activr_entity :actor
+
   include Mongoid::Document
 
   field :_id, :type => String, :default => lambda { first_name ? first_name.parameterize : nil }
@@ -68,16 +72,6 @@ class User
   # albums in which we can add given picture
   def target_albums(picture)
     self.albums.reject{ |album| album.pictures.include?(picture) }
-  end
-
-  # fetch last activities
-  def activities(limit, skip = 0)
-    Activr.activities(limit, :skip => skip, :actor => self._id)
-  end
-
-  # get total number of activities
-  def activities_count
-    Activr.count_activities(:actor => self._id)
   end
 
   # fetch last news feed
