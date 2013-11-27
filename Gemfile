@@ -53,6 +53,8 @@ gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick'
 
+gem 'kaminari'
+
 # Fix that once gems are public
 gem "fwissr", :git => "git@github.com:fotonauts/fwissr.git", :branch => "master"
 # gem "activr", :git => "git@github.com:fotonauts/activr.git", :branch => "master"
