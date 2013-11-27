@@ -19,9 +19,12 @@
     </ul>
   </p>
 <% else %>
-  <div class='timeline_entries'>
+  <div id='timeline_entries'>
     <% timeline_entries.each do |timeline_entry| %>
       <%= render :partial => "shared/timeline_entry", :locals => { :timeline_entry => timeline_entry } %>
     <% end %>
   </div>
+  <% if timeline_entries.is_a?(Kaminari::PaginatableArray) %>
+    <%= paginate(timeline_entries) %>
+  <% end %>
 <% end %>

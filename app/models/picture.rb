@@ -39,4 +39,9 @@ class Picture
     Activr.activities(limit, :skip => skip, :picture => self._id)
   end
 
+  # get total number of activities
+  def activities_count
+    Activr.count_activities(:picture => self._id)
+  end
+
 end

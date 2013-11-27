@@ -33,4 +33,9 @@ class Album
     Activr.activities(limit, :skip => skip, :album => self._id)
   end
 
+  # get total number of activities
+  def activities_count
+    Activr.count_activities(:album => self._id)
+  end
+
 end

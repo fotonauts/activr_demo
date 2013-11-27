@@ -12,8 +12,16 @@ class PicturesController < ApplicationController
       @target_albums = current_user.target_albums(@picture)
     end
 
-    # fetch last activities
-    @activities = @picture.activities(20)
+    # compute pagination
+    page_size = 20
+    page = (params[:page] || 1).to_i
+    skip = (page - 1) * page_size
+
+    # fetch activities
+    activities_ary = @picture.activities(page_size, skip)
+
+    # paginate
+    @activities = Kaminari.paginate_array(activities_ary, :total_count => @picture.activities_count).page(page).per(page_size)
   end
 
   def new

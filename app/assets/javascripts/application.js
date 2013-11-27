@@ -16,3 +16,22 @@
 //= require_tree .
 //= require bootstrap
 //= require jquery.infinitescroll
+
+// Enable infinite scroll on activities and timeline entries lists
+(function() {
+  $(document).ready(function() {
+    return $("#activities").infinitescroll({
+      navSelector: "ul.pagination",
+      nextSelector: "ul.pagination a[rel=next]",
+      itemSelector: "#activities div.activity"
+    });
+  });
+
+  $(document).ready(function() {
+    return $("#timeline_entries").infinitescroll({
+      navSelector: "ul.pagination",
+      nextSelector: "ul.pagination a[rel=next]",
+      itemSelector: "#timeline_entries div.timeline_entry"
+    });
+  });
+}).call(this);

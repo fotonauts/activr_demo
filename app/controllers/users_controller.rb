@@ -8,11 +8,22 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    # fetch last activities
-    @activities = @user.activities(20)
+    # compute pagination
+    page_size = 20
+    page = (params[:page] || 1).to_i
+    skip = (page - 1) * page_size
 
-    # fetch last news feed entries
-    @news_feed = @user.news_feed(20)
+    # fetch and paginate activities
+    activities_items = @user.activities(page_size, skip)
+
+    @activities = Kaminari.paginate_array(activities_items, :total_count => @user.activities_count).page(page).per(page_size)
+
+    if user_signed_in? && (current_user == @user)
+      # fetch and paginate news feed entries
+      news_feed_items = @user.news_feed(page_size, skip)
+
+      @news_feed = Kaminari.paginate_array(news_feed_items, :total_count => @user.news_feed_count).page(page).per(page_size)
+    end
   end
 
   def follow

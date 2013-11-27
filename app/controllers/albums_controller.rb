@@ -8,8 +8,16 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id])
 
-    # fetch last activities
-    @activities = @album.activities(20)
+    # compute pagination
+    page_size = 20
+    page = (params[:page] || 1).to_i
+    skip = (page - 1) * page_size
+
+    # fetch activities
+    activities_ary = @album.activities(page_size, skip)
+
+    # paginate
+    @activities = Kaminari.paginate_array(activities_ary, :total_count => @album.activities_count).page(page).per(page_size)
   end
 
   def new
