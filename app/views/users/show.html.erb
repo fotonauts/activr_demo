@@ -3,10 +3,9 @@
 <div class="row">
   <aside class="col-md-4">
     <section>
-      <h1>
-        <%= image_tag(@user.avatar.url, :title => @user.fullname) %>
-        <%= @user.fullname %>
-      </h1>
+      <%= image_tag(@user.avatar.url, :title => @user.fullname) %>
+
+      <h3><%= @user.fullname %></h3>
 
       <% if user_signed_in? && (current_user != @user) %>
         <% if current_user.follow?(@user) %>
@@ -85,12 +84,25 @@
   </aside>
 
   <div class="col-md-8">
-    <h3>Activity Feed</h3>
-    <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
-
     <% if user_signed_in? && (current_user == @user) %>
-      <h3>News Feed</h3>
-      <%= render :partial => "shared/timeline_entries", :locals => { :timeline_entries => @news_feed } %>
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#newsfeed" data-toggle="tab">News Feed</a></li>
+        <li><a href="#activities" data-toggle="tab">Activity Feed</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="newsfeed">
+          <h3>News Feed</h3>
+          <%= render :partial => "shared/timeline_entries", :locals => { :timeline_entries => @news_feed } %>
+        </div>
+        <div class="tab-pane" id="activities">
+          <h3>Activity Feed</h3>
+          <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
+        </div>
+      </div>
+    <% else %>
+      <h3>Activity Feed</h3>
+      <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
     <% end %>
   </div>
 </div>
