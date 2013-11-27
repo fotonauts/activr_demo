@@ -10,6 +10,9 @@ class UsersController < ApplicationController
 
     # fetch last activities
     @activities = @user.activities(20)
+
+    # fetch last news feed entries
+    @news_feed = @user.news_feed(20)
   end
 
   def follow

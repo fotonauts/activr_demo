@@ -75,6 +75,11 @@ class User
     Activr.activities(limit, :skip => skip, :actor => self._id)
   end
 
+  # fetch last news feed
+  def news_feed(limit, skip = 0)
+    Activr.timeline(UserNewsFeedTimeline, self._id).fetch(limit, skip)
+  end
+
 
   #
   # Relationships

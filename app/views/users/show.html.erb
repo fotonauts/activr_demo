@@ -86,11 +86,11 @@
 
   <div class="col-md-8">
     <h3>Activity Feed</h3>
-
     <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
 
     <% if user_signed_in? && (current_user == @user) %>
-      <h3>HERE SOON: CURRENT USER'S NEWS FEED</h3>
+      <h3>News Feed</h3>
+      <%= render :partial => "shared/timeline_entries", :locals => { :timeline_entries => @news_feed } %>
     <% end %>
   </div>
 </div>

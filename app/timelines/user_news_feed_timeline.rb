@@ -9,7 +9,18 @@ class UserNewsFeedTimeline < Activr::Timeline
   # Routes
   #
 
-  # route FollowBuddyActivity, :to => 'buddy', :humanize => "{{actor.fullname}} is now following you"
+  route AddPictureActivity, :to => 'picture.owner', :humanize => "{{actor.fullname}} added your picture {{picture.title}} to the album {{album.name}}"
+  route AddPictureActivity, :to => 'actor.followers'
+  route AddPictureActivity, :to => 'album.followers'
+
+  route FollowAlbumActivity, :to => 'album.owner', :humanize => "{{actor.fullname}} is now following your album {{album.name}}"
+  route FollowAlbumActivity, :to => 'actor.followers'
+
+  route FollowBuddyActivity, :to => 'buddy',           :humanize => "{{actor.fullname}} is now following you"
+  route FollowBuddyActivity, :to => 'actor.followers', :humanize => "{{actor.fullname}} is now following you"
+
+  route LikePictureActivity, :to => 'picture.owner',   :humanize => "{{actor.fullname}} liked your picture {{picture.title}}"
+  route LikePictureActivity, :to => 'actor.followers', :humanize => "{{actor.fullname}} liked your picture {{picture.title}}"
 
 
   #
