@@ -52,5 +52,8 @@
         <%= button_to("Like", like_picture_path(@picture), :method => :post, :class => 'button btn btn-primary') %>
       <% end %>
     <% end %>
+
+    <h3>Activity Feed</h3>
+    <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
   </div>
 </div>

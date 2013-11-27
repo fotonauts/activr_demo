@@ -11,6 +11,9 @@ class PicturesController < ApplicationController
     if user_signed_in?
       @target_albums = current_user.target_albums(@picture)
     end
+
+    # fetch last activities
+    @activities = @picture.activities(20)
   end
 
   def new

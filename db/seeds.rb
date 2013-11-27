@@ -65,7 +65,19 @@ end
 
 
 puts
-puts '== SEEDING PICTURES AND ALBUMS'
+puts '== SEEDING USERS RELATIONSHIPS'
+
+users['jpale'].follow!(users['anne'])
+users['jpale'].follow!(users['corinne'])
+
+users['anne'].follow!(users['jpale'])
+users['anne'].follow!(users['justine'])
+
+users['justine'].follow!(users['jpale'])
+
+
+puts
+puts '== SEEDING ALBUMS'
 
 albums_infos = {
   'jpale' => {
@@ -155,7 +167,6 @@ albums_infos = {
 }
 
 albums = { }
-pictures = { }
 
 albums_infos.each do |user_id, albums_infos|
   albums_infos.each do |album_name, pictures_infos|
@@ -165,6 +176,29 @@ albums_infos.each do |user_id, albums_infos|
       :fake  => true,
     })
 
+    albums[album_name] = album
+
+    puts "+ Album created: #{album.name}"
+  end
+end
+
+
+puts
+puts '== SEEDING ALBUMS RELATIONSHIPS'
+
+users['jpale'].follow_album!(albums['LOLCATS'])
+
+users['anne'].follow_album!(albums['I know what I did last summer'])
+users['anne'].follow_album!(albums['LOLCATS'])
+
+
+puts
+puts '== SEEDING PICTURES'
+
+pictures = { }
+
+albums_infos.each do |user_id, albums_infos|
+  albums_infos.each do |album_name, pictures_infos|
     pictures_infos.each do |picture_title, picture_hash|
       picture = Picture.create(picture_hash.merge({
         :title => picture_title,
@@ -178,37 +212,24 @@ albums_infos.each do |user_id, albums_infos|
         picture.save rescue nil
       end
 
-      puts "+ Picture created: #{picture.title}"
       pictures[picture.title] = picture
 
-      album.pictures << picture
+      albums[album_name].add_picture(picture, picture.owner)
+
+      puts "+ Picture '#{picture.title}' created and added to album: #{album_name}"
     end
-
-    albums[album_name] = album
-
-    puts "+ Album created: #{album.name}"
   end
 end
 
 
 puts
-puts '== SEEDING RELATIONSHIPS'
+puts '== SEEDING LIKES'
 
-users['jpale'].follow!(users['anne'])
-users['jpale'].follow!(users['corinne'])
-users['jpale'].follow_album!(albums['LOLCATS'])
 users['jpale'].like!(pictures['p0Wn3d'])
-
-users['anne'].follow_album!(albums['I know what I did last summer'])
-users['anne'].follow_album!(albums['LOLCATS'])
-users['anne'].follow!(users['jpale'])
-users['anne'].follow!(users['justine'])
 
 users['corinne'].like!(pictures['Look at me'])
 users['corinne'].like!(pictures['LOOOOL'])
 users['corinne'].like!(pictures['My little coccinnelle'])
-
-users['justine'].follow!(users['jpale'])
 
 
 puts

@@ -34,4 +34,9 @@ class Picture
 
   end
 
+  # fetch last activities
+  def activities(limit, skip = 0)
+    Activr.activities(limit, :skip => skip, :picture => self._id)
+  end
+
 end
