@@ -12,8 +12,12 @@ Install imagemagick first. For example on mac:
 $ brew install imagemagick
 ```
 
-Test
-====
+Then:
+```
+$ bundle install
+$ rake db:seed
+$ rails s
+```
 
 Reset with:
 
