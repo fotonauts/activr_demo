@@ -3,7 +3,11 @@
     There is nothing to display right now.
   </p>
   <p>
-    Please login then perform some actions to generate some activities.
+    <% if user_signed_in? %>
+      Please perform actions to generate some activities.
+    <% else %>
+      Please login then perform actions to generate some activities.
+    <% end %>
   </p>
 <% else %>
   <div class='activities'>
