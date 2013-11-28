@@ -74,16 +74,6 @@ class User
     self.albums.reject{ |album| album.pictures.include?(picture) }
   end
 
-  # fetch last news feed
-  def news_feed(limit, skip = 0)
-    Activr.timeline(UserNewsFeedTimeline, self._id).fetch(limit, skip)
-  end
-
-  # get total number of news feed entries
-  def news_feed_count
-    Activr.timeline(UserNewsFeedTimeline, self._id).count
-  end
-
 
   #
   # Relationships

@@ -20,9 +20,9 @@ class UsersController < ApplicationController
 
     if user_signed_in? && (current_user == @user)
       # fetch and paginate news feed entries
-      news_feed_items = @user.news_feed(page_size, skip)
+      news_feed_items = @user.user_news_feed(page_size, skip)
 
-      @news_feed = Kaminari.paginate_array(news_feed_items, :total_count => @user.news_feed_count).page(page).per(page_size)
+      @news_feed = Kaminari.paginate_array(news_feed_items, :total_count => @user.user_news_feed_count).page(page).per(page_size)
     end
   end
 

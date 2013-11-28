@@ -2,7 +2,7 @@
 
 class UserNewsFeedTimeline < Activr::Timeline
 
-  self.recipient_class = User
+  recipient User
 
 
   #
