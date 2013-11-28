@@ -2,12 +2,10 @@
 
 class AddPictureActivity < Activr::Activity
 
-  entity :actor, :class => User
-  entity :picture, :class => Picture
-  entity :album, :class => Album
+  entity :actor,   :class => User,    :humanize => :fullname
+  entity :picture, :class => Picture, :humanize => :title
+  entity :album,   :class => Album,   :humanize => :name
 
-  def humanize
-    Activr.sentence("{{actor.fullname}} added {{picture.title}} in the album {{album.name}}", self.humanization_bindings)
-  end
+  humanize "{{actor}} added {{picture}} in the album {{album}}"
 
 end

@@ -2,11 +2,9 @@
 
 class LikePictureActivity < Activr::Activity
 
-  entity :actor, :class => User
-  entity :picture, :class => Picture
+  entity :actor,   :class => User,    :humanize => :fullname
+  entity :picture, :class => Picture, :humanize => :title
 
-  def humanize
-    Activr.sentence("{{actor.fullname}} likes the picture {{picture.title}}", self.humanization_bindings)
-  end
+  humanize "{{actor}} likes the picture {{picture}}"
 
 end
