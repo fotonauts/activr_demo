@@ -9,18 +9,18 @@ class UserNewsFeedTimeline < Activr::Timeline
   # Routes
   #
 
-  route AddPictureActivity, :to => 'picture.owner', :humanize => "{{actor}} added your picture {{picture}} to the album {{album}}"
+  route AddPictureActivity, :to => 'picture.owner', :humanize => "{{{actor}}} added your picture {{{picture}}} to the album {{{album}}}"
   route AddPictureActivity, :to => 'actor.followers'
   route AddPictureActivity, :to => 'album.followers'
 
-  route FollowAlbumActivity, :to => 'album.owner', :humanize => "{{actor}} is now following your album {{album}}"
+  route FollowAlbumActivity, :to => 'album.owner', :humanize => "{{{actor}}} is now following your album {{{album}}}"
   route FollowAlbumActivity, :to => 'actor.followers'
 
-  route FollowBuddyActivity, :to => 'buddy',           :humanize => "{{actor}} is now following you"
-  route FollowBuddyActivity, :to => 'actor.followers', :humanize => "{{actor}} is now following you"
+  route FollowBuddyActivity, :to => 'buddy',           :humanize => "{{{actor}}} is now following you"
+  route FollowBuddyActivity, :to => 'actor.followers', :humanize => "{{{actor}}} is now following you"
 
-  route LikePictureActivity, :to => 'picture.owner',   :humanize => "{{actor}} liked your picture {{picture}}"
-  route LikePictureActivity, :to => 'actor.followers', :humanize => "{{actor}} liked your picture {{picture}}"
+  route LikePictureActivity, :to => 'picture.owner',   :humanize => "{{{actor}}} liked your picture {{{picture}}}"
+  route LikePictureActivity, :to => 'actor.followers', :humanize => "{{{actor}}} liked your picture {{{picture}}}"
 
 
   #
