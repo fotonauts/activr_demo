@@ -30,23 +30,33 @@
 
   .icon {
     display: inline-block;
-    position: relative;
     width: 60px;
     vertical-align: top;
   }
 
   .content {
     display: inline-block;
-    position: relative;
-    text-overflow: ellipsis;
 
     .title {
       margin-top: 3px;
+      max-width: 500px
     }
 
     .date {
-      display: inline-block;
-      position: relative;
+    }
+
+    .buddy, .picture, .album {
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    .buddy {
+    }
+
+    .picture {
+    }
+
+    .album {
     }
   }
 }

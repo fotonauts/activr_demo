@@ -4,6 +4,19 @@
   </div>
   <div class="content">
     <div class="title"><%= activity.humanize(:html => true).html_safe %></div>
+    <% if activity.buddy %>
+      <div class="buddy">
+        <%= link_to(image_tag(activity.buddy.avatar.url, :title => activity.buddy.fullname), activity.buddy) %>
+      </div>
+    <% elsif activity.picture %>
+      <div class="picture">
+        <%= link_to(image_tag(activity.picture.image.small.url, :title => activity.picture.title), activity.picture) %>
+      </div>
+    <% elsif activity.album %>
+      <div class="album">
+        <%= link_to(image_tag(activity.album.cover.image.small.url, :title => activity.album.name), activity.album) %>
+      </div>
+    <% end %>
     <small class="date text-muted"><%= distance_of_time_in_words_to_now(activity.at, true) %> ago</small>
   </div>
 </div>
