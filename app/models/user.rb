@@ -2,8 +2,6 @@ class User
 
   include Activr::Entity::ModelMixin
 
-  activr_entity :actor
-
   include Mongoid::Document
 
   field :_id, :type => String, :default => lambda { first_name ? first_name.parameterize : nil }
