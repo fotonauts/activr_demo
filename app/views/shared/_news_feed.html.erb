@@ -1,4 +1,4 @@
-<% if timeline_entries.blank? %>
+<% if news_feed.blank? %>
   <p>
     There is nothing to display right now.
   </p>
@@ -19,12 +19,12 @@
     </ul>
   </p>
 <% else %>
-  <div id='timeline_entries'>
-    <% timeline_entries.each do |timeline_entry| %>
-      <%= render :partial => "shared/timeline_entry", :locals => { :timeline_entry => timeline_entry } %>
+  <div id='news_feed'>
+    <% news_feed.each do |timeline_entry| %>
+      <%= render :partial => "shared/activity", :locals => { :activity => timeline_entry.activity } %>
     <% end %>
   </div>
-  <% if timeline_entries.is_a?(Kaminari::PaginatableArray) %>
-    <%= paginate(timeline_entries) %>
+  <% if news_feed.is_a?(Kaminari::PaginatableArray) %>
+    <%= paginate(news_feed) %>
   <% end %>
 <% end %>
