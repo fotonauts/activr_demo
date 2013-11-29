@@ -23,15 +23,23 @@
     return $("#activities").infinitescroll({
       navSelector: "ul.pagination",
       nextSelector: "ul.pagination a[rel=next]",
-      itemSelector: "#activities div.activity"
+      itemSelector: "#activities div.activity",
+      loading: {
+        msgText: "<em>Loading more activities...</em>",
+        finishedMsg: "<em>No more activities.</em>"
+      }
     });
   });
 
   $(document).ready(function() {
-    return $("#timeline_entries").infinitescroll({
+    return $("#news_feed").infinitescroll({
       navSelector: "ul.pagination",
       nextSelector: "ul.pagination a[rel=next]",
-      itemSelector: "#timeline_entries div.timeline_entry"
+      itemSelector: "#news_feed div.activity",
+      loading: {
+        msgText: "<em>Loading more news...</em>",
+        finishedMsg: "<em>No more news.</em>"
+      }
     });
   });
 }).call(this);
