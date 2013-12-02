@@ -3,7 +3,7 @@
     <%= link_to(image_tag(activity.actor.avatar.thumb.url, :title => activity.actor.fullname), activity.actor) %>
   </div>
   <div class="content">
-    <div class="title"><%= activity.humanize(:html => true).html_safe %></div>
+    <div class="title"><%= title.html_safe %></div>
     <% if activity.buddy %>
       <div class="buddy">
         <%= link_to(image_tag(activity.buddy.avatar.url, :title => activity.buddy.fullname), activity.buddy) %>

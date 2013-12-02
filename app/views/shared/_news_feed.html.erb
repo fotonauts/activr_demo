@@ -21,7 +21,7 @@
 <% else %>
   <div id='news_feed'>
     <% news_feed.each do |timeline_entry| %>
-      <%= render :partial => "shared/activity", :locals => { :activity => timeline_entry.activity } %>
+      <%= render :partial => "shared/activity", :locals => { :activity => timeline_entry.activity, :title => timeline_entry.humanize(:html => true) } %>
     <% end %>
   </div>
   <% if news_feed.is_a?(Kaminari::PaginatableArray) %>

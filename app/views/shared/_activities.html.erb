@@ -12,7 +12,7 @@
 <% else %>
   <div id='activities'>
     <% activities.each do |activity| %>
-      <%= render :partial => "shared/activity", :locals => { :activity => activity } %>
+      <%= render :partial => "shared/activity", :locals => { :activity => activity, :title => activity.humanize(:html => true) } %>
     <% end %>
   </div>
   <% if activities.is_a?(Kaminari::PaginatableArray) %>
