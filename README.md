@@ -25,3 +25,13 @@ Reset with:
 $ rm -rf public/uploads/
 $ rake db:reset
 ```
+
+Setup Resque workers:
+```
+$ brew install redis
+$ redis-server /usr/local/etc/redis.conf
+
+$ resque-web
+
+$ VVERBOSE=1 QUEUE=* rake environment resque:work
+```

@@ -56,6 +56,8 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0', :github => 'mcasimir/kaminari-bootstrap'
 
+gem 'resque', '~> 1.25'
+
 # Fix that once gems are public
 gem "fwissr", :git => "git@github.com:fotonauts/fwissr.git", :branch => "master"
 # gem "activr", :git => "git@github.com:fotonauts/activr.git", :branch => "master"
