@@ -35,3 +35,9 @@ $ resque-web
 
 $ VVERBOSE=1 QUEUE=* rake environment resque:work
 ```
+
+Todo
+====
+
+- Remove duplicated activities
+- Install on Heroku / AppFog / DigitalOcean / ...
