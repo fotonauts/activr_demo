@@ -9,6 +9,6 @@ class HomeController < ApplicationController
     activities_ary = Activr.activities(page_size, :skip => skip)
 
     # paginate
-    @activities = Kaminari.paginate_array(activities_ary, :total_count => Activr.count_activities).page(page).per(page_size)
+    @activities = Kaminari.paginate_array(activities_ary, :total_count => Activr.activities_count).page(page).per(page_size)
   end
 end

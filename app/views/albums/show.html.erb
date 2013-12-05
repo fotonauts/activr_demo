@@ -21,7 +21,7 @@
 
       <% if user_signed_in? && (current_user == @album.owner) %>
         <p>
-          <span class="glyphicon glyphicon-plus"></span> <%= link_to "add picture", new_photo_album_path %>
+          <span class="glyphicon glyphicon-plus"></span> <%= link_to "add picture", new_picture_album_path %>
         </p>
       <% end %>
     </section>

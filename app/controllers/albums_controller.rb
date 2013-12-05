@@ -55,7 +55,7 @@ class AlbumsController < ApplicationController
     redirect_to @album
   end
 
-  def new_photo
+  def new_picture
     @album = Album.find(params[:id])
     if (current_user != @album.owner)
       flash[:error] = "You are not the owner of album: '#{@album.name}'"
@@ -65,7 +65,7 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def create_photo
+  def create_picture
     @album = Album.find(params[:id])
     if (current_user != @album.owner)
       flash[:error] = "You are not the owner of album: '#{@album.name}'"
@@ -77,7 +77,7 @@ class AlbumsController < ApplicationController
       # add picture to album
       @album.add_picture(picture, current_user)
 
-      flash[:success] = "Photo '#{picture.title}' added to album: '#{@album.name}'"
+      flash[:success] = "Picture '#{picture.title}' added to album: '#{@album.name}'"
       redirect_to @album
     end
   end

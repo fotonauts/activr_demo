@@ -12,8 +12,8 @@ ActivrDemo::Application.routes.draw do
   resources :albums do
     member do
       post :follow, :unfollow
-      get :new_photo
-      post :create_photo
+      get :new_picture
+      post :create_picture
     end
   end
 
