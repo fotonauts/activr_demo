@@ -16,14 +16,6 @@ GIT
       origin (~> 1.0)
       tzinfo (~> 0.3.37)
 
-GIT
-  remote: git@github.com:fotonauts/fwissr.git
-  revision: 9cd7a5a8dfcb336f35ed1a4e169ed52af57a1fa2
-  branch: master
-  specs:
-    fwissr (0.0.9)
-      yajl-ruby
-
 PATH
   remote: /Users/aymerick/Dev/github/activr
   specs:
@@ -87,6 +79,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    fwissr (1.0.2)
+      yajl-ruby
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -199,7 +193,7 @@ DEPENDENCIES
   carrierwave-mongoid
   coffee-rails (~> 4.0.0)
   devise
-  fwissr!
+  fwissr
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
