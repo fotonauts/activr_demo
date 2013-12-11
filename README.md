@@ -1,7 +1,22 @@
 Activr demo
 ===========
 
-Demo application for activr gem.
+Demo application for [activr](https://github.com/fotonauts/activr) gem.
+
+A [MongoDB](http://www.mongodb.org/) database is needed.
+
+More information [on our tumblr](http://fotopedia-code.tumblr.com)
+
+Technologies:
+
+- [rails 4](https://github.com/rails/rails)
+- [mongoid 4](https://github.com/mongoid/mongoid)
+- [devise](https://github.com/plataformatec/devise)
+- [carrierwave](https://github.com/carrierwaveuploader/carrierwave)
+- [resque](https://github.com/resque/resque)
+- [bootstrap 3](http://getbootstrap.com)
+- [simple form](https://github.com/plataformatec/simple_form)
+- [kaminari](https://github.com/amatsuda/kaminari)
 
 Install
 =======
