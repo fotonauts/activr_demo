@@ -58,8 +58,16 @@ $ resque-web
 $ VVERBOSE=1 QUEUE=* rake environment resque:work
 ```
 
+
 Todo
 ====
 
 - Remove duplicated activities
 - Install on Heroku / AppFog / DigitalOcean / ...
+
+
+References
+==========
+
+- <http://www.elliotbradbury.com/use-mongohq-heroku-without-verifying-account/>
+- <https://devcenter.heroku.com/articles/getting-started-with-rails4>

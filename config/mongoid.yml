@@ -5,7 +5,7 @@ production:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: activr_demo_development
+      database: activr_demo
       uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         # Change the default write concern. (default = { w: 1 })
