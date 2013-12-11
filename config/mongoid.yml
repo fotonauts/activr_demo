@@ -3,13 +3,7 @@ production:
   sessions:
     # Defines the default session. (required)
     default:
-      # Defines the name of the default database that Mongoid can connect to.
-      # (required).
-      database: <%=ENV["MONGOHQ_DB"]%>
-      hosts:
-        - <%=ENV["MONGOHQ_HOST"]%>:<%=ENV["MONGOHQ_PORT"]%>
-      username: <%=ENV["MONGOHQ_USER"]%
-      password: <%=ENV["MONGOHQ_PASS"]%
+      uri: <%=ENV["MONGOHQ_URI"]%>
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:

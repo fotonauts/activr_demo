@@ -67,11 +67,9 @@ To deploy on heroku:
 ```
 $ heroku create
 
-$ heroku config:set MONGOHQ_DB=_db name_
-$ heroku config:set MONGOHQ_HOST=_host_
-$ heroku config:set MONGOHQ_PORT=_port_
-$ heroku config:set MONGOHQ_USER=_username_
-$ heroku config:set MONGOHQ_PASS=_password_
+$ heroku config:set MONGOHQ_URI=mongodb://<user>:<password>@alex.mongohq.com:10056/activr_demo
+
+$ heroku config
 
 $ git push heroku master
 
