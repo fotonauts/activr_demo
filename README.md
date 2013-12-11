@@ -78,6 +78,12 @@ $ git push heroku master
 $ heroku logs --tail
 ```
 
+Debug:
+
+```
+$ heroku run rails console
+```
+
 
 Todo
 ====
