@@ -5,7 +5,11 @@ production:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      uri: <%= ENV['MONGOHQ_URL'] %>
+      database: <%=ENV["MONGOHQ_DB"]%>
+      hosts:
+        - <%=ENV["MONGOHQ_HOST"]%>:<%=ENV["MONGOHQ_PORT"]%>
+      username: <%=ENV["MONGOHQ_USER"]%
+      password: <%=ENV["MONGOHQ_PASS"]%
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
