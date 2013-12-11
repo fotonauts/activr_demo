@@ -1,4 +1,4 @@
-development:
+production:
   # Configure available database sessions. (required)
   sessions:
     # Defines the default session. (required)
@@ -6,10 +6,7 @@ development:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
       database: activr_demo_development
-      # Provides the hosts the default session can connect to. Must be an array
-      # of host:port pairs. (required)
-      hosts:
-        - infrabox:27017
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -60,6 +57,19 @@ development:
     # Use Active Support's time zone in conversions. (default: true)
     # use_activesupport_time_zone: true
 
+    # Ensure all times are UTC in the app side. (default: false)
+    use_utc: true
+development:
+  sessions:
+    default:
+      database: activr_demo_development
+      hosts:
+        - infrabox:27017
+      options:
+        # Change the default write concern. (default = { w: 1 })
+        # write:
+        w: 1
+  options:
     # Ensure all times are UTC in the app side. (default: false)
     use_utc: true
 test:

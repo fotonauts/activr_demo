@@ -60,6 +60,5 @@ gem 'resque', '~> 1.25'
 
 gem "fwissr"
 
-# Fix that once gem is public
-# gem "activr", :git => "git@github.com:fotonauts/activr.git", :branch => "master"
-gem "activr", :path => "/Users/aymerick/Dev/github/activr"
+# @todo Fix that once gem is published
+gem "activr", :github => "fotonauts/activr"

@@ -5,7 +5,7 @@ Demo application for [activr](https://github.com/fotonauts/activr) gem.
 
 A [MongoDB](http://www.mongodb.org/) database is needed.
 
-A test app is available [on heroku](http://activr_demo.herokuapp.com), feel free to create an account and try it.
+A test app is available [on heroku](http://activr-demo.herokuapp.com), feel free to create an account and try it.
 
 More information [on our tumblr](http://fotopedia-code.tumblr.com)
 
@@ -31,6 +31,8 @@ Install imagemagick first. For example on mac:
 ```
 $ brew install imagemagick
 ```
+
+Change mongodb `hosts` setting in `config/mongoid.yml` file.
 
 Then:
 ```
