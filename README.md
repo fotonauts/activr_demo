@@ -5,6 +5,8 @@ Demo application for [activr](https://github.com/fotonauts/activr) gem.
 
 A [MongoDB](http://www.mongodb.org/) database is needed.
 
+A test app is available [on heroku](http://activr_demo.herokuapp.com), feel free to create an account and try it.
+
 More information [on our tumblr](http://fotopedia-code.tumblr.com)
 
 Technologies:
@@ -17,6 +19,9 @@ Technologies:
 - [bootstrap 3](http://getbootstrap.com)
 - [simple form](https://github.com/plataformatec/simple_form)
 - [kaminari](https://github.com/amatsuda/kaminari)
+
+[![Code Climate](https://codeclimate.com/github/fotonauts/activr_demo.png)](https://codeclimate.com/github/fotonauts/activr_demo)
+
 
 Install
 =======
