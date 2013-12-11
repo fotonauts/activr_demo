@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/fotonauts/activr.git
+  revision: 64b5ba4c843ce4a1306245b04a4d0fdc0e89abcd
+  specs:
+    activr (0.0.1)
+      activemodel
+      activesupport
+      fwissr
+      mustache
+
+GIT
   remote: git://github.com/mcasimir/kaminari-bootstrap.git
   revision: 0dc098f544734afb73a254d56061ffb375a81431
   specs:
@@ -15,15 +25,6 @@ GIT
       moped (~> 2.0.beta3)
       origin (~> 1.0)
       tzinfo (~> 0.3.37)
-
-PATH
-  remote: /Users/aymerick/Dev/github/activr
-  specs:
-    activr (0.0.1)
-      activemodel
-      activesupport
-      fwissr
-      mustache
 
 GEM
   remote: https://rubygems.org/
