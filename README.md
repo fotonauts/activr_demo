@@ -59,6 +59,18 @@ $ VVERBOSE=1 QUEUE=* rake environment resque:work
 ```
 
 
+Heroku
+======
+
+To deploy on heroku:
+
+```
+$ heroku create
+
+$ git push heroku master
+```
+
+
 Todo
 ====
 

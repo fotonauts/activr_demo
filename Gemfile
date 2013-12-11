@@ -62,3 +62,6 @@ gem "fwissr"
 
 # @todo Fix that once gem is published
 gem "activr", :github => "fotonauts/activr"
+
+# heroku requirement
+gem 'rails_12factor', group: :production
