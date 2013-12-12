@@ -2,6 +2,10 @@
 
 <h2>Users</h2>
 
+<p>
+  Visit a user profile to see his activity feed, and to start following him.
+</p>
+
 <% @users.each do |user| %>
   <p><%= image_tag(user.avatar.thumb.url) %> <%= link_to user.fullname, user %></p>
 <% end %>

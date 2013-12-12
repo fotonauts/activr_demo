@@ -93,15 +93,30 @@
       <div class="tab-content">
         <div class="tab-pane active" id="newsfeed">
           <h3>News Feed</h3>
+
+          <p>
+            That feed displays <strong><%= @user.fullname %></strong>'s news.
+          </p>
+
           <%= render :partial => "shared/news_feed", :locals => { :news_feed => @news_feed } %>
         </div>
         <div class="tab-pane" id="activities">
           <h3>Activity Feed</h3>
+
+          <p>
+            That feed displays all actions performed by <strong><%= @user.fullname %></strong>.
+          </p>
+
           <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
         </div>
       </div>
     <% else %>
       <h3>Activity Feed</h3>
+
+      <p>
+        That feed displays all actions performed by <strong><%= @user.fullname %></strong>.
+      </p>
+
       <%= render :partial => "shared/activities", :locals => { :activities => @activities } %>
     <% end %>
   </div>
