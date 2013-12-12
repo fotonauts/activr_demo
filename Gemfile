@@ -52,6 +52,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mini_magick'
+gem "fog"
 
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0', :github => 'mcasimir/kaminari-bootstrap'

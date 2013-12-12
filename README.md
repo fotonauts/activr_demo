@@ -69,6 +69,9 @@ $ heroku create
 
 $ heroku config:set MONGOHQ_URI=mongodb://<user>:<password>@alex.mongohq.com:10056/activr_demo
 $ heroku config:set ACTIVR_FORCE_SYNC=true
+$ heroku config:set S3_ACCESS_KEY_ID=<access key id>
+$ heroku config:set S3_SECRET_ACCESS_KEY=<secret access key>
+$ heroku config:set S3_BUCKET=activr
 
 $ heroku config
 
