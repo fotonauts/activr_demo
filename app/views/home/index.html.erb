@@ -2,16 +2,16 @@
   <aside class="col-md-3">
     <section>
       <p>
-        Welcome to the demo site of <a href="ttps://github.com/fotonauts/activr">activr</a>, the ruby gem that handles activity streams on <a href="http://www.fotopedia.com">fotopedia</a>.
+        Welcome to the demo site of <%= link_to "activr", "https://github.com/fotonauts/activr" %>, the Ruby gem created by Fotonauts to manage activity feeds on <%= link_to "fotopedia", "http://www.fotopedia.com" %>.
       </p>
       <p>
-        Please login then perform actions to generate some activities.
+        Please <%= link_to "login", new_session_path(:user) %> then perform actions to generate some activities.
       </p>
       <p>
-        Source code is <a href="ttps://github.com/fotonauts/activr_demo">available on github</a>.
+        Source code is <%= link_to "available on github", "https://github.com/fotonauts/activr_demo" %>.
       </p>
       <p>
-        Check out <a href="http://fotopedia-code.tumblr.com">our tumblr</a> for more awesomeness from fotopedia's team.
+        Check out <%= link_to "our tumblr", "http://fotopedia-code.tumblr.com" %> for more awesomeness from fotopedia's team.
       </p>
     </section>
   </aside>
