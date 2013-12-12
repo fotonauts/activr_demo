@@ -68,6 +68,7 @@ To deploy on heroku:
 $ heroku create
 
 $ heroku config:set MONGOHQ_URI=mongodb://<user>:<password>@alex.mongohq.com:10056/activr_demo
+$ heroku config:set ACTIVR_FORCE_SYNC=true
 
 $ heroku config
 
