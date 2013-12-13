@@ -38,14 +38,14 @@
     <% end %>
 
     <% unless @album.followers.blank? %>
-      <section>
-        <h3><strong><%= @album.followers.count %></strong> followers</h3>
-        <p>
-          <% @album.followers.each do |follower| %>
-            <%= image_tag(follower.avatar.thumb.url) %>
-          <% end %>
-        </p>
-      </section>
+      <section>
+        <h3><strong><%= @album.followers.count %></strong> followers</h3>
+        <p>
+          <% @album.followers.each do |follower| %>
+            <%= image_tag(follower.avatar.thumb.url) %>
+          <% end %>
+        </p>
+      </section>
     <% end %>
   </aside>
 
