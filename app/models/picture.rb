@@ -2,6 +2,9 @@ class Picture
 
   include Activr::Entity::ModelMixin
 
+  # picture can be deleted
+  activr_entity :deletable => true
+
   include Mongoid::Document
 
   field :_id, :type => String, :default => lambda { title ? title.parameterize : nil }
@@ -25,6 +28,9 @@ class Picture
   belongs_to :owner, :class_name => "User", :inverse_of => :pictures
   has_and_belongs_to_many :albums, :class_name => "Album", :inverse_of => :pictures
   has_and_belongs_to_many :likers, :class_name => "User", :inverse_of => :likes
+
+  # callbacks
+  after_destroy :delete_activities!
 
 
   class << self

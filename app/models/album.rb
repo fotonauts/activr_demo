@@ -2,6 +2,9 @@ class Album
 
   include Activr::Entity::ModelMixin
 
+  # album can be deleted
+  activr_entity :deletable => true
+
   include Mongoid::Document
 
   # fields
@@ -15,6 +18,9 @@ class Album
   belongs_to :owner, :class_name => "User", :inverse_of => :albums
   has_and_belongs_to_many :pictures, :class_name => "Picture", :inverse_of => :albums
   has_and_belongs_to_many :followers, :class_name => "User", :inverse_of => :following_albums
+
+  # callbacks
+  after_destroy :delete_activities!
 
 
   def cover

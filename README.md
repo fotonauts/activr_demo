@@ -90,6 +90,7 @@ $ heroku run rails console
 Todo
 ====
 
+- Picture and album deletion
 - Remove duplicated activities
 - Install on Heroku / AppFog / DigitalOcean / ...
 
