@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/fotonauts/activr.git
-  revision: 694cf638b4019cf1467de1ef2b419342b3dfc4e4
+  revision: 984e8958860068ae40b6fda7c61f252b51b477fa
   specs:
     activr (0.0.5)
       activemodel
