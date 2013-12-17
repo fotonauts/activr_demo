@@ -23,6 +23,9 @@
         <p>
           <span class="glyphicon glyphicon-plus"></span> <%= link_to "add picture", new_picture_album_path %>
         </p>
+        <p>
+          <span class="glyphicon glyphicon-remove"></span> <%= link_to "delete album", @album, :method => :delete, :data => { :confirm => "Are you sure you want to delete that album?" } %>
+        </p>
       <% end %>
     </section>
 

@@ -37,6 +37,20 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def destroy
+    album = Album.find(params[:id])
+
+    if album.owner != current_user
+      flash[:error] = "You don't own album: #{album.name}"
+      redirect_to album
+    else
+      album.destroy
+
+      flash[:success] = "Album deleted."
+      redirect_to url_for(current_user)
+    end
+  end
+
   def follow
     @album = Album.find(params[:id])
     if (current_user != @album.owner) && !current_user.follow_album?(@album)
