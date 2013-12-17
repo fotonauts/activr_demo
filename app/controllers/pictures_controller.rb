@@ -41,6 +41,20 @@ class PicturesController < ApplicationController
     end
   end
 
+  def destroy
+    picture = Picture.find(params[:id])
+
+    if picture.owner != current_user
+      flash[:error] = "You don't own picture: #{picture.title}"
+      redirect_to picture
+    else
+      picture.destroy
+
+      flash[:success] = "Picture deleted."
+      redirect_to url_for(current_user)
+    end
+  end
+
   def like
     @picture = Picture.find(params[:id])
     if (current_user != @picture) && !current_user.like?(@picture)

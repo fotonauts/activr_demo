@@ -14,6 +14,10 @@
           <%= select_tag(:album_id, options_from_collection_for_select(@target_albums, :id, :name), :class => "form-control") %>
         <% end %>
       <% end %>
+
+      <% if user_signed_in? && (current_user == @picture.owner)  %>
+        <span class="glyphicon glyphicon-remove"></span> <%= link_to "delete picture", @picture, :method => :delete, :data => { :confirm => "Are you sure you want to delete that picture?" } %>
+      <% end %>
     </section>
 
     <% unless @picture.albums.blank? %>
