@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/fotonauts/activr.git
-  revision: 971a3b9c53054fd4fee295ee7ddcddfc5eb1290e
+  revision: 02b1d2df7861fb84d53599a01f0b88030d726fb7
   specs:
-    activr (0.0.6)
+    activr (0.0.9)
       activemodel
       activesupport
       fwissr
@@ -210,7 +210,7 @@ GEM
       rack (>= 1.0.0)
     warden (1.2.3)
       rack (>= 1.0)
-    yajl-ruby (1.1.0)
+    yajl-ruby (1.2.0)
 
 PLATFORMS
   ruby

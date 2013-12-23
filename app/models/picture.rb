@@ -2,8 +2,7 @@ class Picture
 
   include Activr::Entity::ModelMixin
 
-  # picture can be deleted
-  activr_entity :deletable => true
+  activr_entity :feed_index => true, :deletable => true
 
   include Mongoid::Document
 

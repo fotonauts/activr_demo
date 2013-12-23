@@ -62,7 +62,7 @@ gem 'resque', '~> 1.25'
 
 gem "fwissr"
 
-# @todo Fix that once gem is published
+# @todo Fix that once activr v1.0 is published
 gem "activr", :github => "fotonauts/activr"
 # gem "activr", :path => "/Users/aymerick/Dev/github/activr"
 
