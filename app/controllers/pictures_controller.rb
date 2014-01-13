@@ -18,7 +18,7 @@ class PicturesController < ApplicationController
     skip = (page - 1) * page_size
 
     # fetch activities
-    activities_ary = @picture.activities(page_size, skip)
+    activities_ary = @picture.activities(page_size, :skip => skip)
 
     # paginate
     @activities = Kaminari.paginate_array(activities_ary, :total_count => @picture.activities_count).page(page).per(page_size)
