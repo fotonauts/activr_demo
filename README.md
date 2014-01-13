@@ -91,7 +91,6 @@ Todo
 ====
 
 - Remove duplicated activities
-- Install on Heroku / AppFog / DigitalOcean / ...
 
 
 References
