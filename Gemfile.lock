@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/fotonauts/activr.git
-  revision: 49f1f2369121eea94f6cc249d97c18e209c90d1b
+  revision: 2eee8434989d26ea5d75b4edcd4abcab328f15cd
   specs:
-    activr (0.0.12)
+    activr (0.0.14)
       activemodel
       activesupport
       fwissr
