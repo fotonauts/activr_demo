@@ -87,12 +87,6 @@ $ heroku run rails console
 ```
 
 
-Todo
-====
-
-- Remove duplicated activities
-
-
 References
 ==========
 
