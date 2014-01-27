@@ -4,6 +4,9 @@ class UserNewsFeedTimeline < Activr::Timeline
 
   recipient User
 
+  # trim timeline
+  max_length 100
+
 
   #
   # Routes
