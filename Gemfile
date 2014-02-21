@@ -62,9 +62,8 @@ gem 'resque', '~> 1.25'
 
 gem "fwissr"
 
-# @todo Fix that once activr v1.0 is published
-gem "activr", :github => "fotonauts/activr"
-# gem "activr", :path => "/Users/aymerick/Dev/github/activr"
+gem "activr"
+# gem "activr", :github => "fotonauts/activr"
 
 # heroku requirement
 gem 'rails_12factor', group: :production

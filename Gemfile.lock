@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/fotonauts/activr.git
-  revision: 7f51f90d1f7850655e5e31bccdebe0218d0017f2
-  specs:
-    activr (0.0.18)
-      activemodel
-      activesupport
-      fwissr
-      mustache
-
-GIT
   remote: git://github.com/mcasimir/kaminari-bootstrap.git
   revision: 0dc098f544734afb73a254d56061ffb375a81431
   specs:
@@ -53,6 +43,11 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    activr (1.0.0)
+      activemodel
+      activesupport
+      fwissr
+      mustache
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -216,7 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activr!
+  activr
   carrierwave
   carrierwave-mongoid
   coffee-rails (~> 4.0.0)
